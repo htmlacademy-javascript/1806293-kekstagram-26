@@ -7,7 +7,6 @@ const getRandomInteger = (min, max) =>  min + Math.floor(Math.random() * (max + 
 getRandomInteger(39, 44);
 
 
-
 // Задача 2 (Функция для проверки максимальной длины строки)
 const checkLineLength = (checkString, maxLength) => checkString.length <= maxLength;
 
