@@ -55,10 +55,26 @@ const NAMES = [
 // получение случайного значения из массива
 const getRandomArrayElement = (array) => array[getRandomInteger(0, array.length - 1)];
 
-
 // случайный аватар
 const getAvatar = () => `img/avatar-${getRandomInteger(1, 6)}.svg`;
 getAvatar();
+
+
+// создание массива из комментариев
+const getMakeComments = (commentsAmount) => {
+  const comments = [];
+
+  for (let i = 1; i <= commentsAmount; i++) {
+    comments.push({
+      id: i,
+      avatar: `img/avatar-${i}.jpg`,
+      message: getRandomArrayElement(COMMENTS),
+      name: getRandomArrayElement(NAMES),
+    });
+  }
+
+  return comments;
+};
 
 // создание массива из постов
 const getMakePosts = (postsAmount) => {
@@ -70,9 +86,11 @@ const getMakePosts = (postsAmount) => {
       url: `photos/${i}.jpg`,
       description: getRandomArrayElement(DESCRIPTIONS),
       likes: getRandomInteger(15, 200),
-      comments: 'comment',
+      comments: getMakeComments(getRandomInteger(2, 8)),
     });
   }
 
   return posts;
 };
+
+getMakePosts(POSTS_QUANTITY);
